@@ -1,0 +1,1 @@
+{"Triple": 569, "Single": 980, "Double": 681}

@@ -1,0 +1,159 @@
+{"Pinyin": "zi", "Word": {"\u81ea": 2}}
+{"Pinyin": "ping", "Word": {"\u5e73": 1}}
+{"Pinyin": "long", "Word": {"\u9f99": 1}}
+{"Pinyin": "kou", "Word": {"\u53e3": 1}}
+{"Pinyin": "ju", "Word": {"\u5c40": 11}}
+{"Pinyin": "wei", "Word": {"\u5fae": 4}}
+{"Pinyin": "xian", "Word": {"\u73b0": 2, "\u663e": 2, "\u5148": 2}}
+{"Pinyin": "zhe", "Word": {"\u6d59": 1, "\u8005": 1}}
+{"Pinyin": "qiang", "Word": {"\u5f3a": 2}}
+{"Pinyin": "bai", "Word": {"\u767d": 3}}
+{"Pinyin": "dao", "Word": {"\u5230": 2, "\u9053": 2}}
+{"Pinyin": "chen", "Word": {"\u6668": 1}}
+{"Pinyin": "cai", "Word": {"\u91c7": 1}}
+{"Pinyin": "deng", "Word": {"\u7b49": 11}}
+{"Pinyin": "heng", "Word": {"\u6052": 1}}
+{"Pinyin": "tian", "Word": {"\u5929": 17}}
+{"Pinyin": "jun", "Word": {"\u5747": 1}}
+{"Pinyin": "zu", "Word": {"\u8db3": 2}}
+{"Pinyin": "dai", "Word": {"\u5e26": 1}}
+{"Pinyin": "bei", "Word": {"\u5317": 31}}
+{"Pinyin": "wang", "Word": {"\u7f51": 2, "\u671b": 1}}
+{"Pinyin": "shao", "Word": {"\u5c11": 1}}
+{"Pinyin": "xun", "Word": {"\u8baf": 2}}
+{"Pinyin": "pian", "Word": {"\u504f": 3}}
+{"Pinyin": "you", "Word": {"\u6709": 20, "\u53f3": 2}}
+{"Pinyin": "jie", "Word": {"\u89e3": 2}}
+{"Pinyin": "zhao", "Word": {"\u7f69": 1}}
+{"Pinyin": "te", "Word": {"\u7279": 1}}
+{"Pinyin": "xue", "Word": {"\u96ea": 4}}
+{"Pinyin": "shang", "Word": {"\u4e0a": 5}}
+{"Pinyin": "huo", "Word": {"\u6d3b": 1}}
+{"Pinyin": "fen", "Word": {"\u5206": 3}}
+{"Pinyin": "zui", "Word": {"\u6700": 3}}
+{"Pinyin": "pen", "Word": {"\u76c6": 2}}
+{"Pinyin": "hou", "Word": {"\u540e": 3}}
+{"Pinyin": "shan", "Word": {"\u5c71": 3, "\u9655": 2}}
+{"Pinyin": "zuo", "Word": {"\u5de6": 2}}
+{"Pinyin": "nian", "Word": {"\u5e74": 4}}
+{"Pinyin": "feng", "Word": {"\u5cf0": 4}}
+{"Pinyin": "ri", "Word": {"\u65e5": 18}}
+{"Pinyin": "he", "Word": {"\u6cb3": 7, "\u548c": 4}}
+{"Pinyin": "qing", "Word": {"\u9752": 2, "\u8f7b": 1}}
+{"Pinyin": "chuan", "Word": {"\u5ddd": 2}}
+{"Pinyin": "xin", "Word": {"\u65b0": 5, "\u5fc3": 1}}
+{"Pinyin": "zhi", "Word": {"\u81f3": 7, "\u6307": 1, "\u8d28": 1, "\u503c": 4, "\u5236": 1}}
+{"Pinyin": "zao", "Word": {"\u9020": 1}}
+{"Pinyin": "cheng", "Word": {"\u5448": 2, "\u7a0b": 1, "\u57ce": 1, "\u6210": 1}}
+{"Pinyin": "cang", "Word": {"\u85cf": 2}}
+{"Pinyin": "du", "Word": {"\u5ea6": 19}}
+{"Pinyin": "leng", "Word": {"\u51b7": 2}}
+{"Pinyin": "mei", "Word": {"\u5a92": 1}}
+{"Pinyin": "nong", "Word": {"\u6d53": 5}}
+{"Pinyin": "shi", "Word": {"\u9002": 2, "\u5ba4": 1, "\u65f6": 6, "\u59cb": 1, "\u52bf": 3, "\u793a": 1, "\u6e7f": 1, "\u65bd": 1}}
+{"Pinyin": "nei", "Word": {"\u5185": 5}}
+{"Pinyin": "fu", "Word": {"\u5e45": 1, "\u670d": 1}}
+{"Pinyin": "ji", "Word": {"\u75be": 1, "\u7ee7": 1, "\u5409": 1, "\u5180": 1, "\u53ca": 4, "\u8ba1": 7}}
+{"Pinyin": "ren", "Word": {"\u4eba": 2}}
+{"Pinyin": "jiang", "Word": {"\u5c06": 10, "\u7586": 5, "\u6c5f": 6, "\u964d": 7}}
+{"Pinyin": "guang", "Word": {"\u5e7f": 1}}
+{"Pinyin": "chan", "Word": {"\u4ea7": 1}}
+{"Pinyin": "se", "Word": {"\u8272": 1}}
+{"Pinyin": "wai", "Word": {"\u5916": 2}}
+{"Pinyin": "xu", "Word": {"\u7eed": 1, "\u9700": 3}}
+{"Pinyin": "hei", "Word": {"\u9ed1": 1}}
+{"Pinyin": "meng", "Word": {"\u8499": 5}}
+{"Pinyin": "neng", "Word": {"\u80fd": 4}}
+{"Pinyin": "bing", "Word": {"\u75c5": 1, "\u5e76": 1}}
+{"Pinyin": "zhong", "Word": {"\u4e2d": 34, "\u91cd": 8}}
+{"Pinyin": "pin", "Word": {"\u54c1": 1}}
+{"Pinyin": "wen", "Word": {"\u6e29": 7}}
+{"Pinyin": "gong", "Word": {"\u516c": 3, "\u5171": 1}}
+{"Pinyin": "suo", "Word": {"\u6240": 2}}
+{"Pinyin": "an", "Word": {"\u5b89": 2}}
+{"Pinyin": "wo", "Word": {"\u6211": 1}}
+{"Pinyin": "nan", "Word": {"\u5357": 33}}
+{"Pinyin": "huang", "Word": {"\u9ec4": 5}}
+{"Pinyin": "qi", "Word": {"\u6c14": 25, "\u671f": 7, "\u5176": 3}}
+{"Pinyin": "zai", "Word": {"\u5728": 2, "\u518d": 1}}
+{"Pinyin": "xiao", "Word": {"\u5c0f": 4}}
+{"Pinyin": "liao", "Word": {"\u8fbd": 2}}
+{"Pinyin": "huai", "Word": {"\u6dee": 5}}
+{"Pinyin": "gu", "Word": {"\u53e4": 5}}
+{"Pinyin": "hu", "Word": {"\u6e56": 2, "\u547c": 1, "\u62a4": 1}}
+{"Pinyin": "ning", "Word": {"\u5b81": 2}}
+{"Pinyin": "fan", "Word": {"\u8303": 2}}
+{"Pinyin": "hai", "Word": {"\u6d77": 2}}
+{"Pinyin": "su", "Word": {"\u82cf": 1}}
+{"Pinyin": "ti", "Word": {"\u4f53": 3}}
+{"Pinyin": "tong", "Word": {"\u901a": 2}}
+{"Pinyin": "yan", "Word": {"\u4e25": 2}}
+{"Pinyin": "dan", "Word": {"\u65e6": 5}}
+{"Pinyin": "huan", "Word": {"\u60a3": 1, "\u7f13": 3}}
+{"Pinyin": "de", "Word": {"\u5730": 32, "\u7684": 10}}
+{"Pinyin": "yue", "Word": {"\u6708": 6}}
+{"Pinyin": "yuan", "Word": {"\u5458": 1, "\u5143": 5, "\u539f": 2}}
+{"Pinyin": "ke", "Word": {"\u514b": 4, "\u53ef": 3}}
+{"Pinyin": "mai", "Word": {"\u973e": 13}}
+{"Pinyin": "ran", "Word": {"\u67d3": 4}}
+{"Pinyin": "ying", "Word": {"\u5e94": 1, "\u5f71": 4}}
+{"Pinyin": "jiao", "Word": {"\u4ea4": 2, "\u8f83": 2}}
+{"Pinyin": "sheng", "Word": {"\u5347": 3}}
+{"Pinyin": "tai", "Word": {"\u53f0": 3}}
+{"Pinyin": "duan", "Word": {"\u6bb5": 1}}
+{"Pinyin": "lu", "Word": {"\u8def": 1}}
+{"Pinyin": "dong", "Word": {"\u52a8": 1, "\u4e1c": 24}}
+{"Pinyin": "shui", "Word": {"\u6c34": 2}}
+{"Pinyin": "yun", "Word": {"\u4e91": 2, "\u8fd0": 2}}
+{"Pinyin": "cuo", "Word": {"\u63aa": 1}}
+{"Pinyin": "ruan", "Word": {"\u962e": 1}}
+{"Pinyin": "yang", "Word": {"\u592e": 3}}
+{"Pinyin": "hui", "Word": {"\u56de": 3, "\u8f89": 1, "\u5fbd": 2}}
+{"Pinyin": "ban", "Word": {"\u822c": 1, "\u4f34": 1}}
+{"Pinyin": "gao", "Word": {"\u9ad8": 5}}
+{"Pinyin": "si", "Word": {"\u56db": 2}}
+{"Pinyin": "xiang", "Word": {"\u8c61": 5, "\u54cd": 4, "\u5411": 2}}
+{"Pinyin": "jing", "Word": {"\u8b66": 1, "\u4eac": 6}}
+{"Pinyin": "lin", "Word": {"\u6797": 1}}
+{"Pinyin": "shu", "Word": {"\u8f93": 2, "\u8ff0": 1}}
+{"Pinyin": "dian", "Word": {"\u70b9": 1}}
+{"Pinyin": "zhan", "Word": {"\u5c55": 2}}
+{"Pinyin": "li", "Word": {"\u91cc": 2, "\u529b": 1, "\u5229": 2, "\u7acb": 4}}
+{"Pinyin": "lei", "Word": {"\u7d2f": 2}}
+{"Pinyin": "jia", "Word": {"\u52a0": 1, "\u5047": 3}}
+{"Pinyin": "jin", "Word": {"\u5c3d": 1, "\u6d25": 5, "\u4ec5": 2}}
+{"Pinyin": "da", "Word": {"\u8fbe": 2, "\u5927": 10}}
+{"Pinyin": "quan", "Word": {"\u5168": 7}}
+{"Pinyin": "cong", "Word": {"\u4ece": 1}}
+{"Pinyin": "ling", "Word": {"\u51cc": 1}}
+{"Pinyin": "qu", "Word": {"\u533a": 17, "\u53d6": 1, "\u8d8b": 2}}
+{"Pinyin": "wu", "Word": {"\u5348": 2, "\u96fe": 7, "\u52a1": 1, "\u6c61": 4, "\u65e0": 1}}
+{"Pinyin": "ge", "Word": {"\u5404": 1}}
+{"Pinyin": "kang", "Word": {"\u5eb7": 1}}
+{"Pinyin": "ming", "Word": {"\u660e": 2}}
+{"Pinyin": "liang", "Word": {"\u91cf": 4}}
+{"Pinyin": "mi", "Word": {"\u7c73": 8}}
+{"Pinyin": "guo", "Word": {"\u56fd": 10, "\u8fc7": 4}}
+{"Pinyin": "tu", "Word": {"\u56fe": 2}}
+{"Pinyin": "dui", "Word": {"\u5bf9": 3}}
+{"Pinyin": "zheng", "Word": {"\u6574": 1}}
+{"Pinyin": "chao", "Word": {"\u8d85": 4}}
+{"Pinyin": "kong", "Word": {"\u7a7a": 5}}
+{"Pinyin": "chu", "Word": {"\u51fa": 4}}
+{"Pinyin": "di", "Word": {"\u4f4e": 4}}
+{"Pinyin": "fang", "Word": {"\u9632": 4, "\u65b9": 6}}
+{"Pinyin": "ye", "Word": {"\u591c": 1}}
+{"Pinyin": "ruo", "Word": {"\u5f31": 1}}
+{"Pinyin": "hua", "Word": {"\u6ed1": 1, "\u534e": 5}}
+{"Pinyin": "yin", "Word": {"\u56e0": 1}}
+{"Pinyin": "yu", "Word": {"\u5fa1": 1, "\u57df": 1, "\u9884": 6, "\u96e8": 7}}
+{"Pinyin": "fa", "Word": {"\u53d1": 2}}
+{"Pinyin": "kai", "Word": {"\u5f00": 1}}
+{"Pinyin": "xia", "Word": {"\u4e0b": 1}}
+{"Pinyin": "yi", "Word": {"\u4ee5": 3, "\u4e00": 1, "\u610f": 1}}
+{"Pinyin": "chang", "Word": {"\u5e38": 2}}
+{"Pinyin": "bu", "Word": {"\u90e8": 63, "\u4e0d": 4, "\u5e03": 1}}
+{"Pinyin": "dang", "Word": {"\u5f53": 1}}
+{"Pinyin": "hao", "Word": {"\u6beb": 3}}
+{"Pinyin": "jian", "Word": {"\u95f4": 6, "\u89c1": 4, "\u51cf": 2, "\u5065": 1}}
+{"Pinyin": "xi", "Word": {"\u897f": 14, "\u5438": 1}}
