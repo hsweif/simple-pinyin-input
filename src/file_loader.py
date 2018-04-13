@@ -160,7 +160,7 @@ class Analyzer:
         print('Testing' + cur_word)
         if l == 1:
             if cur_word not in self.single_db[py].keys():
-                return 0
+                return 1
             else:
                 return self.single_db[py][cur_word]
         elif l == 2:

@@ -7,9 +7,9 @@ import sys
 input_path = '../data/input的副本.txt'
 output_path = '../data/output.txt'
 c_num = 20
-alpha = 0.01 
+alpha = pow(10, -20) 
 beta = 1 - alpha
-min_num = 0
+min_num = -100000
 
 class node:
     def __init__(self):
@@ -49,10 +49,10 @@ class Calculator:
                         pair_cnt = self.sum(last+cur, pair_list) 
                         p = self.trans_pbty(last,cur,last_list,cur_list,pair_list)
                         if i == 1:
-                            tmp_dict[cur][last] = alpha * p * item[1]/self.analyzer.single_num 
+                            tmp_dict[cur][last] = p + math.log(item[1])-math.log(self.analyzer.single_num) 
                         else:
                             for j in self.pb_dict[i-1][last].keys():
-                                f = self.pb_dict[i-1][last][j] * p 
+                                f = self.pb_dict[i-1][last][j] + p 
                                 if f > tmp_dict[cur][last]:
                                     tmp_dict[cur][last] = f
                 self.pb_dict[i] = tmp_dict
@@ -73,13 +73,13 @@ class Calculator:
         if cur not in self.ans_dict[i].keys():
             nd = node()
             if i == 0:
-                nd.f = 1.0
+                nd.f = 0.0
                 nd.s = ''
             else:
                 nd.f = min_num 
                 for item in self.pb_dict[i][cur].keys():
                     n = self.find_ans(i-1,item)
-                    p = self.pb_dict[i][cur][item] * n.f
+                    p = self.pb_dict[i][cur][item] + n.f
                     if p > nd.f:
                         nd.f = p
                         if i == 1:
@@ -92,16 +92,19 @@ class Calculator:
     def sum(self, word, word_list):
         for item in word_list:
             if word == item[0]:
-                return item[1]
+                if len(item) > 1:
+                    return item[1]
         return 0
     def trans_pbty(self, last, cur, last_list, cur_list, pair_list):
         cur_cnt = self.sum(cur, cur_list)
         last_cnt = self.sum(last, last_list)
         pair_cnt = self.sum(last+cur, pair_list)
         if last_cnt == 0 or pair_cnt == 0:
-            return alpha*cur_cnt/self.analyzer.single_num
+            if cur_cnt == 0:
+                return math.log(alpha)-math.log(self.analyzer.single_num)
+            return math.log(alpha)+math.log(cur_cnt)-math.log(self.analyzer.single_num)
         else:
-            return alpha*(cur_cnt/self.analyzer.single_num) + beta*(pair_cnt / last_cnt) 
+            return math.log(alpha*(cur_cnt/self.analyzer.single_num) + beta*(pair_cnt / last_cnt)) 
         
 a = Analyzer()
 a.load()
