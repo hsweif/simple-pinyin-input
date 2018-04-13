@@ -2,18 +2,26 @@ from file_loader import Analyzer
 import re
 from pypinyin import lazy_pinyin
 import math
+import sys
 
 input_path = '../data/input.txt'
 output_path = '../data/output.txt'
 c_num = 20
-alpha = 0.0000000000000001
-beta = 1
+alpha = 0.0000000000000000001
+beta = 1 - alpha
+
+class node:
+    def __init__(self):
+        self.s = '' 
+        self.f = 0.0
 
 class Calculator:
     def __init__(self,a):
-        self.word = []
-        self.pinyin = []
         self.analyzer = a
+        self.pb_dict = {} 
+        self.pinyin = []
+        self.ans_sentence = {}
+        self.ans_dict = {}
     def read_in(self, path):
         with open (path, 'r') as f:
             for line in f.readlines():
@@ -22,7 +30,9 @@ class Calculator:
     def viterbi(self):
         for py_list in self.pinyin:
             l = len(py_list)
-            pbty_arr = {} 
+            self.pb_dict = {} 
+            self.ans_sentence = {}
+            self.ans_dict = {}
             for i in range(1, l):
                 py = py_list[i-1] + ' ' + py_list[i]
                 cur_list = self.analyzer.find_choice(py_list[i], 1)
@@ -40,26 +50,55 @@ class Calculator:
                         if i == 1:
                             tmp_dict[cur][last] = p
                         else:
-                            for j in pbty_arr[i-1][last].keys():
-                                f = pbty_arr[i-1][last][j] * p 
+                            for j in self.pb_dict[i-1][last].keys():
+                                f = self.pb_dict[i-1][last][j] * p 
                                 if f > tmp_dict[cur][last]:
                                     tmp_dict[cur][last] = f
-                pbty_arr[i] = tmp_dict
+                self.pb_dict[i] = tmp_dict
             k = l-1
-            ans_st = ''
-            next_w = ''
-            while k > 0:
-                f = 0.0
-                for cur in pbty_arr[k].keys():
-                    for last in pbty_arr[k][cur].keys():
-                        if pbty_arr[k][cur][last] > f:
-                            f = pbty_arr[k][cur][last]
-                            cur_w = cur
-                            next_w = last
-                ans_st = cur_w + ans_st
-                k = k-1
-            ans_st = next_w + ans_st
-            print(ans_st)
+            ans_list = []
+            for cur in self.pb_dict[l-1].keys():
+                ans_list.append(self.find_ans(l-1, cur))
+            ans_nd = node()
+            ans_nd.f = 0
+            for item in ans_list:
+                if item.f > ans_nd.f:
+                    ans_nd = item
+            print(ans_nd.s)
+    def find_ans(self, i, cur):
+        '''
+        prev = ''
+        f= 0.0
+        for item in self.pb_dict[i][cur].keys():
+            if self.pb_dict[i][cur][item] > f:
+                f = self.pb_dict[i][cur][item]
+                prev = item
+        if i == 1:
+            return prev + cur
+        else:
+            return find_ans(i-1, prev) + cur
+        '''
+        if i not in self.ans_dict.keys():
+            self.ans_dict[i] = {}
+        if cur not in self.ans_dict[i].keys():
+            nd = node()
+            if i == 0:
+                nd.f = 1
+                nd.s = ''
+                return nd
+
+            nd.f = 0
+            for item in self.pb_dict[i][cur].keys():
+                n = self.find_ans(i-1,item)
+                p = self.pb_dict[i][cur][item] * n.f
+                if p > nd.f:
+                    nd.f = p
+                    if i == 1:
+                        nd.s = item + cur
+                    else:
+                        nd.s = n.s + cur 
+            self.ans_dict[i][cur] = nd
+        return self.ans_dict[i][cur]
     def sum(self, word, word_list):
         for item in word_list:
             if word == item[0]:
@@ -80,4 +119,3 @@ a.load()
 c = Calculator(a)
 c.read_in(input_path)
 c.viterbi()
-
