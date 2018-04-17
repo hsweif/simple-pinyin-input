@@ -141,7 +141,7 @@ class Analyzer:
             self.triple_num = data.get('Triple')
     def dict_sort(self, py, choice_num, database):
         if py not in database.keys():
-            return ['x']
+            return ['']
         dict_size = len(database[py])
         result = sorted(database[py].items(), key=lambda e:e[1],reverse = True)
         if dict_size < choice_num:
@@ -178,10 +178,21 @@ class Analyzer:
         self.load_result(single_file, self.single_db)
         self.load_result(double_file, self.double_db)
         self.load_cnt()
-'''
-        self.load_result(triple_file, self.triple_db)
-'''
-
+    def find_sum(self, word, py, n):
+        if n == 1:
+            if py not in self.single_db.keys():
+                return 0
+            elif word not in self.single_db[py].keys():
+                return 0
+            else:
+                return self.single_db[py][word] 
+        else:
+            if py not in self.double_db.keys():
+                return 0
+            elif word not in self.double_db[py].keys():
+                return 0
+            else:
+                return self.double_db[py][word] 
 
 
 '''

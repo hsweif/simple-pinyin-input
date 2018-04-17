@@ -6,9 +6,9 @@ import sys
 
 input_path = '../data/input的副本.txt'
 output_path = '../data/output.txt'
-test_path = '../data/test.txt'
+test_path = '../data/test_1.txt'
 c_num = 20
-alpha = 0.01 
+alpha = 0.00001 
 beta = 1 - alpha
 min_num = -100000
 
@@ -36,7 +36,7 @@ class Calculator:
         with open(path, 'r') as f:
             l = 0
             for line in f.readlines():
-                cur_str = re.sub('\n', '', line)
+                cur_str = re.sub(' \n|  \n|\n', '', line)
                 if l == 0:
                     self.pinyin.append(re.split(' ', cur_str))
                     l = 1
@@ -62,73 +62,65 @@ class Calculator:
         stc_num = 0
         wd_num = 0
         for py_list in self.pinyin:
-            ans_stc = ''
-            l = len(py_list) - 1
+            #ans_stc = ''
+            l = len(py_list)
             self.pb_dict = {} 
             self.ans_sentence = {}
             self.ans_dict = {}
-            for i in range(1, l):
-                py = py_list[i-1].lower() + ' ' + py_list[i].lower()
-                cur_list = self.analyzer.find_choice(py_list[i].lower(), 1)
-                last_list = self.analyzer.find_choice(py_list[i-1].lower(), 1)
-                pair_list = self.analyzer.find_choice(py, 2)
-                tmp_dict = {}
-                max_f = min_num
-                tmp_w = ''
-                for cur in cur_list:
-                    cur = cur[0]
-                    tmp_dict[cur] = {}
-                    for item in last_list:
-                        last = item[0]
-                        tmp_dict[cur][last] = min_num 
-                        pair_cnt = self.sum(last+cur, pair_list) 
-                        p = self.trans_pbty(last,cur,last_list,cur_list,pair_list)
-                        if i == 1:
-                            tmp_dict[cur][last] = p + math.log(item[1])-math.log(self.analyzer.single_num) 
-                        else:
-                            for j in self.pb_dict[i-1][last].keys():
-                                f = self.pb_dict[i-1][last][j] + p 
-                                if f > tmp_dict[cur][last]:
-                                    tmp_dict[cur][last] = f
-                        if tmp_dict[cur][last] > max_f:
-                            max_f = tmp_dict[cur][last]
-                            if i < l-1:
-                                tmp_w = last
+            if l == 1:
+                cur_list = self.analyzer.find_choice(py_list[l-1].lower(), 1)
+                ans_nd = node()
+                ans_nd.s = cur_list[0][0] 
+            else:
+                for i in range(1, l):
+                    last_py = py_list[i-1].lower()
+                    cur_py = py_list[i].lower()
+                    py = last_py + ' ' + cur_py
+                    #py = py_list[i-1].lower() + ' ' + py_list[i].lower()
+                    #cur_list = self.analyzer.find_choice(py_list[i].lower(), 1)
+                    #last_list = self.analyzer.find_choice(py_list[i-1].lower(), 1)
+                    #pair_list = self.analyzer.find_choice(py, 2)
+                    if cur_py == '' or last_py == '':
+                        continue
+                    #cur_list = list(self.analyzer.single_db[cur_py]);
+                    #last_list = list(self.analyzer.single_db[last_py]);
+                    tmp_dict = {}
+                    tmp_w = ''
+                    if cur_py not in self.analyzer.single_db.keys():
+                        continue
+                    for cur in self.analyzer.single_db[cur_py].keys():
+                        if cur == '':
+                            continue
+                        tmp_dict[cur] = {}
+                        if last_py not in self.analyzer.single_db.keys():
+                            continue
+                        for last in self.analyzer.single_db[last_py].keys():
+                            tmp_dict[cur][last] = min_num 
+                            p = self.trans_pbty(last,cur,last_py,cur_py, py)
+                            if i == 1:
+                                tmp_dict[cur][last] = p + math.log(self.analyzer.single_db[last_py][last])-math.log(self.analyzer.single_num) 
                             else:
-                                tmp_w = last+cur
-                ans_stc = ans_stc + tmp_w
-                self.pb_dict[i] = tmp_dict
-            '''
-            p = min_num
-            next_w = ''
-            cur_w = ''
-            for cur in self.pb_dict[l-1].keys():
-                for item in self.pb_dict[l-1][cur].keys():
-                    if self.pb_dict[l-1][cur][item] > p:
-                        p = self.pb_dict[l-1][cur][item]
-                        cur_w = cur
-                        next_w = item 
-            print(cur_w + next_w)
-            ans_st = self.find_ans_1(l-2, next_w) + cur_w
+                                for j in self.pb_dict[i-1][last].keys():
+                                    f = self.pb_dict[i-1][last][j] + p 
+                                    if f > tmp_dict[cur][last]:
+                                        tmp_dict[cur][last] = f
 
-            ans_list = []
-            self.ans_dict = {}
-            for cur in self.pb_dict[l-1].keys():
-                ans_list.append(self.find_ans(l-1, cur))
-            ans_nd = node()
-            ans_nd.f = min_num 
-            for item in ans_list:
-                if item.f > ans_nd.f:
-                    ans_nd = item
-            '''
-            if self.cmp_stc(ans_stc, self.ans[k]):
-                #print('correct: ' + ans_nd.s)
-                print('correct: ' + ans_stc)
+                    self.pb_dict[i] = tmp_dict
+                ans_list = []
+                self.ans_dict = {}
+                for cur in self.pb_dict[l-1].keys():
+                    ans_list.append(self.find_ans(l-1, cur))
+                ans_nd = node()
+                ans_nd.f = min_num 
+                for item in ans_list:
+                    if item.f > ans_nd.f:
+                        ans_nd = item
+            if self.cmp_stc(ans_nd.s, self.ans[k]):
+                print('correct: ' + ans_nd.s)
                 stc_num = stc_num + 1
             else:
-                #print('wrong: ' + ans_nd.s + '/ ' + self.ans[k])
-                print('wrong: ' + ans_stc + '/ ' + self.ans[k])
-            wd_num = wd_num + self.cmp_word(ans_stc, self.ans[k])
+                print('wrong: ' + ans_nd.s + '/ ' + self.ans[k])
+            wd_num = wd_num + self.cmp_word(ans_nd.s, self.ans[k])
             k = k + 1
         print('句子正确率：' + str(stc_num/self.stc_cnt))
         print('字正确率：' + str(wd_num/self.word_cnt))
@@ -164,14 +156,19 @@ class Calculator:
         return self.find_ans_1(i-1, next_w) + cur
     def sum(self, word, word_list):
         for item in word_list:
+            if item == '':
+                continue
             if word == item[0]:
                 if len(item) > 1:
                     return item[1]
         return 0
-    def trans_pbty(self, last, cur, last_list, cur_list, pair_list):
-        cur_cnt = self.sum(cur, cur_list)
-        last_cnt = self.sum(last, last_list)
-        pair_cnt = self.sum(last+cur, pair_list)
+    def trans_pbty(self, last, cur, last_py, cur_py, py):
+        #cur_cnt = self.sum(cur, cur_list)
+        #last_cnt = self.sum(last, last_list)
+        #pair_cnt = self.sum(last+cur, pair_list)
+        cur_cnt = self.analyzer.find_sum(cur, cur_py, 1)
+        last_cnt = self.analyzer.find_sum(last, last_py, 1)
+        pair_cnt = self.analyzer.find_sum(last+cur, py, 2)
         if last_cnt == 0 or pair_cnt == 0:
             if cur_cnt == 0:
                 return math.log(alpha)-math.log(self.analyzer.single_num)
