@@ -1,1 +1,1 @@
-{"Triple": 569, "Single": 980, "Double": 681}
+{"Single": 552855989, "Triple": 46227614, "Double": 422668423}
