@@ -12,7 +12,7 @@ from pypinyin import pinyin, lazy_pinyin
 
 src_file = '../../sina_news/2016-'
 test_file = '../../sina_news/test.txt'
-pinyin_lib = '../data/一二级汉字表.txt'
+pinyin_lib = '../data/拼音汉字表.txt'
 single_file = '../data/single_word.txt'
 double_file = '../data/double_word.txt'
 triple_file = '../data/triple_word.txt'
@@ -26,34 +26,30 @@ class Analyzer:
         self.triple_db = {}
         self.single_num = 0
         self.double_num = 0
-        '''
-        self.triple_num = 0
-        '''
-    def load_data(self):
+    def load_data(self, file_path):
         '''将汉字之外的符号与字母用正则表达式过滤'''
         re_exp = '[^\u4e00-\u9fff]+'
-        for i in range(2, 12):
-            if i < 10:
-                news_file = src_file + '0' + str(i) + '.txt' 
-            else:
-                news_file = src_file + str(i) + '.txt'
-            with open(news_file, 'r') as f:
-                self.content = []
-                print(self.content)
-                for line in f.readlines():
-                    lineData = json.loads(line)
-                    data = lineData.get('html')
-                    title = lineData.get('title')
-                    for s in re.split(re_exp, data):
-                        self.content.append(s)
-                '''
-                self.analyze()
-                self.write_cnt()
-                self.write_result(single_file, self.single_db)
-                self.write_result(double_file, self.double_db)
-                '''
-                print('Finished--' + news_file)
-        '''Todo...输入一二级汉字表'''
+        #for i in range(2, 12):
+        #    if i < 10:
+        #        news_file = src_file + '0' + str(i) + '.txt' 
+        #    else:
+        #        news_file = src_file + str(i) + '.txt'
+        with open(file_path, 'r') as f:
+            self.content = []
+            k = 1
+            for line in f.readlines():
+                #lineData = json.loads(line)
+                #data = lineData.get('html')
+                #title = lineData.get('title')
+                #for s in re.split(re_exp, data):
+                #    self.content.append(s)
+                x = re.sub(re_exp, '', line)
+                if x == '':
+                    continue
+                self.content.append(x)
+                sys.stdout.write('loading with...' + str(k) + '\r')
+                k = k + 1
+            #print('Finished--' + news_file)
     def analyze(self):
         k = 0
         for item in self.content:
@@ -193,19 +189,38 @@ class Analyzer:
                 return 0
             else:
                 return self.double_db[py][word] 
+    def complete_single(self):
+        self.load_result(single_file, self.single_db)
+        self.load_cnt()
+        with open(pinyin_lib, 'r') as f:
+            for x in f.readlines():
+                line = re.sub('\n', '', x)
+                wd_list = re.split(' ', line)
+                py = wd_list[0]
+                l = len(wd_list)
+                for i in range(1, l):
+                    if py not in self.single_db.keys():
+                        self.single_db[py] = {}
+                        self.single_db[py][wd_list[i]] = 1
+                    elif wd_list[i] not in self.single_db[py].keys():
+                        self.single_db[py][wd_list[i]] = 1
 
 
 '''
 loader = Analyzer()
 loader.load()
 loader.load_cnt()
-loader.load_data()
-print('done!')
-loader.load_data()
-loader.write_result(triple_file, loader.triple_db)
+loader.load_data('../data/wiki_cn.txt')
+loader.analyze()
 loader.write_cnt()
 loader.write_result(single_file, loader.single_db)
 loader.write_result(double_file, loader.double_db)
+print('done!')
+loader.complete_single()
+loader.write_result(single_file, loader.single_db)
+print('done!')
+loader.load_data()
+loader.write_result(triple_file, loader.triple_db)
 loader.load_result(single_file, loader.single_db)
 loader.load_result(double_file, loader.double_db)
 loader.load_result(triple_file, loader.triple_db)
